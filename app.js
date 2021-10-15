@@ -11,7 +11,9 @@ app.use(bodyParser.json());
 app.get("/", require("./controllers/home/welcomehome"));
 app.post("/personal",require("./controllers/projects/AddPersonal"));
 app.post("/faculty",require("./controllers/projects/AddProject"));
-app.post("/student",require("./controllers/projects/AddProject"));   
+app.post("/student",require("./controllers/projects/AddProject"));
+app.post("/users/login", require("./controllers/auth/login"));   
+app.post("/users/signup", require("./controllers/auth/signup"));   
 
 app.get("/signup", function(req, res){
     console.log("REQUEST BODY SIGNUP:", req.query);

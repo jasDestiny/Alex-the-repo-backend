@@ -1,17 +1,13 @@
 const mongoose=require("mongoose");
 
-const UserSchema= new mongoose.schema({
-    username:{
+const UserSchema= new mongoose.Schema({
+    userid:{
         type:String,
-        required: [true, 'username is required']
+        required: [true, 'userid is required']
     },
     password:{
         type:String,
         required: [true, 'password is required']
-    },
-    userid:{
-        type:String,
-        required: [true, 'userid is required']
     },
     org:{
         type:String,
@@ -23,7 +19,7 @@ const UserSchema= new mongoose.schema({
     },
     tokenval:{
         type:String,
-        required: [true, 'tokenval is required']
+        required: [true, 'tokenval is not mandatory']
     }
 });
 
