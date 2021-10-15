@@ -1,4 +1,4 @@
-const findProject= require("./search/FindProject");
+const findProject= require("../search/FindProject");
 const createProject= require("./CreateProject");
 
 module.exports= async (req, res)=>{
@@ -6,22 +6,22 @@ module.exports= async (req, res)=>{
         const createdby= req.body.createdby;
         const projectype= req.body.projecttype;
         const githubrepo= req.body.githubrepo;
-        const university= req.body.university;
-        const facultyid= req.body.facultyid;
+        const university= "NA";
+        const facultyid= "NA";
         const enddate= req.body.enddate;
         const projectdescription= req.body.projectdescription;
-
-        let user = await connector.then(async () => {
-          let x= await findProject(projectname);
-          if(x!==null){
-            res.send("Use an alternative projectname");
-            return;
-          }
-          return x;
-        });
-    
-        if (!user) {
+        
+        let x= await findProject(projectname);
+        if(x!==null){
+          res.send("Use an alternative projectname");
+          return;
+        }
+          
+        else {
           user = await createProject(projectname, createdby, projectype, githubrepo, university, facultyid, enddate, projectdescription);
+          res.send("success");
+          return;
         }  
-        console.log(project);
+        
+        
 };

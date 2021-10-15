@@ -7,8 +7,14 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-app.get("/", require("./controllers/welcomehome"));
+app.get("/", require("./controllers/home/welcomehome"));
+app.post("/personal",require("./controllers/projects/AddPersonal"));
+app.post("/faculty",require("./controllers/projects/AddProject"));
+app.post("/student",require("./controllers/projects/AddProject"));   
 
-app.post("/personal",require("./controllers/AddPersonal"));
+app.get("/signup", function(req, res){
+    console.log("REQUEST BODY SIGNUP:", req.query);
+    res.json({data: "SAMPLE DATA SIGNUP GET"});
+});
 
 app.listen(port, ()=>console.log(`App is running on port ${port}`)); 
