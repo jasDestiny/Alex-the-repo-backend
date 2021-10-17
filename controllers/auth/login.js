@@ -8,27 +8,18 @@ module.exports=async (req, res)=>{
     let password=crypto.createHash('md5').update(req.body.password).digest('hex');
     let org=req.body.org ;
     let orgtype=req.body.orgtype ;
-
-
-    console.log(typeof(password));
     let x=await UserData.findOne({userid:userid});
     
-    if(x!==null){
+    if(x===null){
         res.json({
-            statuscode:"userid already exists"
+            statuscode:"invalid user credentials"
         });
         return;
     }
     
     let tokenval=tokenGen();
-    await new UserData({
-        userid:userid,
-        password:password,
-        org:org,
-        orgtype:orgtype,
-        tokenval:tokenval
-    }).save();
 
+    await UserData.updateMany({userid:userid},{$set: {authtoken:tokenval}})
     res.json({
         status:"Created Successfully",
         tokenval:tokenval

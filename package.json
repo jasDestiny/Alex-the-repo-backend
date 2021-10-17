@@ -1,7 +1,7 @@
 {
   "name": "alex-the-repo-backend",
   "version": "1.0.0",
-  "description": "Alexandria the project repo stores projects done by students acr",
+  "description": "Alexandria the project repo stores projects done by students",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
