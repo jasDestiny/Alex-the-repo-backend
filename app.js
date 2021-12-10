@@ -12,6 +12,8 @@ app.get("/", require("./controllers/home/welcomehome"));
 app.post("/personal",require("./controllers/projects/AddPersonal"));
 app.post("/faculty",require("./controllers/projects/AddProject"));
 app.post("/student",require("./controllers/projects/AddProject"));
+app.post("/allprojects", require("./controllers/projects/allProjects"));
+app.post("/allprojects/fuzzysearch", require("./controllers/projects/fuzzySearch"));
 app.post("/users/login", require("./controllers/auth/login"));   
 app.post("/users/signup", require("./controllers/auth/signup"));   
 

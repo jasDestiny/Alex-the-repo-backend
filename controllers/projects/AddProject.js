@@ -4,7 +4,7 @@ const createProject= require("./CreateProject");
 module.exports= async (req, res)=>{
         const projectname = req.body.projectname;
         const createdby= req.body.createdby;
-        const projectype= req.body.projecttype;
+        const projectype= "ACADEMIC";
         const githubrepo= req.body.githubrepo;
         const university= req.body.university;
         const facultyid= req.body.facultyid;

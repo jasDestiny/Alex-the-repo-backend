@@ -30,7 +30,7 @@ module.exports=async (req, res)=>{
     }).save();
 
     res.json({
-        status:"Created Successfully",
+        status:"200",
         tokenval:tokenval
     });
     return;
